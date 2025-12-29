@@ -74,9 +74,4 @@ Each agent operates independently while contributing to a unified analytical wor
 
 ---
 
-## 📦 Installation & Run Instructions
 
-### 1️⃣ Clone the Repository
-```bash
-git clone https://github.com/your-username/ai-research-trends-mena.git
-cd ai-research-trends-mena
