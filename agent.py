@@ -558,17 +558,25 @@ if run_btn and selected_unis and selected_topics:
     with tab2:
         st.subheader("🏆 University Rankings")
         
+        # Format the dataframe without matplotlib-dependent styling
+        uni_display = uni_stats.copy()
+        uni_display['avg_citations'] = uni_display['avg_citations'].round(1)
+        uni_display['h_index'] = uni_display['h_index'].astype(int)
+        
         st.dataframe(
-            uni_stats.style.background_gradient(subset=['total_citations', 'paper_count'], cmap='YlGn')
-                         .format({'avg_citations': '{:.1f}', 'h_index': '{:.0f}'}),
+            uni_display,
             use_container_width=True,
             height=400
         )
         
         st.subheader("📊 Topic Rankings")
+        
+        # Format the dataframe without matplotlib-dependent styling
+        topic_display = topic_stats.copy()
+        topic_display['avg_citations'] = topic_display['avg_citations'].round(1)
+        
         st.dataframe(
-            topic_stats.style.background_gradient(subset=['total_citations'], cmap='Blues')
-                           .format({'avg_citations': '{:.1f}'}),
+            topic_display,
             use_container_width=True,
             height=400
         )
